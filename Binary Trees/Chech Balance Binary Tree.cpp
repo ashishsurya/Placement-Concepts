@@ -2,6 +2,10 @@
 #include "BinaryTreeNode.h"
 using namespace std;
 
+/*
+ The basic idea is checking left and right heights of every node.
+*/
+
 int height(BinaryTreeNode<int> *root)
 {
   if (root == nullptr)
