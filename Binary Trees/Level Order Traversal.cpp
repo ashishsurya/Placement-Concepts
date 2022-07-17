@@ -12,7 +12,6 @@ vector<vector<int>> levelOrderTraversal(BinaryTreeNode<int> *root)
   while (!queue.empty())
   {
     int size = queue.size();
-
     vector<int> level;
     for (int i = 0; i < size; i++)
     {
