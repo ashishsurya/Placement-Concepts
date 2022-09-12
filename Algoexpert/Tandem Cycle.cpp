@@ -1,6 +1,4 @@
-#include <vector>
-#include <algorithm>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 int tandemBicycle(vector<int> redShirtSpeeds, vector<int> blueShirtSpeeds,
@@ -34,6 +32,8 @@ int tandemBicycle(vector<int> redShirtSpeeds, vector<int> blueShirtSpeeds,
 
 int main(int argc, char const *argv[])
 {
-  
+  vector<int> redShirtSpeeds = {1,3};
+  vector<int> blueShirtSpeeds = {4,5};
+  cout << tandemBicycle(redShirtSpeeds, blueShirtSpeeds, true) << endl;
   return 0;
 }

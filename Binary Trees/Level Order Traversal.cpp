@@ -7,6 +7,7 @@ vector<vector<int>> levelOrderTraversal(BinaryTreeNode<int> *root)
   vector<vector<int>> ans;
   if (root == nullptr)
     return ans;
+  
   queue<BinaryTreeNode<int> *> queue;
   queue.push(root);
   while (!queue.empty())
