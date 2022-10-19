@@ -1,5 +1,7 @@
 /*
 MEMOIZED
+T.C => O(N*N)
+S.C => O(N*N + N)
 */
 
 class Solution {
@@ -25,5 +27,38 @@ public:
         dp[i] = vector<int>(i+1, -1);
       }
       return minimumTotal(0, 0, n, triangle,dp);
+    }
+};
+
+/*
+TABULATION
+T.C => O(N*N)
+S.C => O(N*N)
+*/
+class Solution {
+public:
+    int minimumTotal(vector<vector<int>>& triangle) {
+      int n = triangle.size();
+      vector<vector<int>> dp(n);
+      for (int i = 0; i < n;i++) {
+        dp[i] = vector<int>(i+1, 0);
+      }
+        
+      // start tabulation
+      for(int j=0;j<n;j++) {
+          dp[n-1][j] = triangle[n-1][j];
+      }
+        
+      for(int i=n-2;i>=0;i--) {
+          for(int j=i;j>=0;j--) {
+              int d = triangle[i][j] + dp[i+1][j];
+              int dg = triangle[i][j] + dp[i+1][j+1];
+              
+              dp[i][j] = min(d,dg);
+          }
+      }
+        
+    return dp[0][0];
+        
     }
 };
