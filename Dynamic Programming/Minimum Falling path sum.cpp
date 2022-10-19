@@ -32,3 +32,42 @@ public:
         return ans;
     }
 };
+
+/*
+TABUALTION
+*/
+class Solution {
+public:
+    int minFallingPathSum(vector<vector<int>>& matrix) {
+        int n = matrix.size();
+        if(n==1) return matrix[0][0];
+        int ans = 1e9;
+        vector<vector<int>> dp(n,vector<int>(n,0));
+        
+        // FILLLING  THE LAST ROW OF DP TABLE 
+        for(int j=0;j<n;j++) dp[n-1][j] = matrix[n-1][j];
+        
+        // FILLING REMAINING TABLE.
+        for(int i=n-2;i>=0;i--) {
+            for(int j=n-1;j>=0;j--) {
+                int ldg,d,rdg; // INITIALIZING VARIABLES.
+                ldg = matrix[i][j];
+                
+                
+                // EEDGE CASE HANDLING
+                (j==0) ? ldg+= 1e9 : ldg+=dp[i+1][j-1];
+                d = matrix[i][j] + dp[i+1][j];
+                rdg = matrix[i][j];
+                // EEDGE CASE HANDLING                
+                (j==n-1) ? rdg += 1e9 : rdg += dp[i+1][j+1];
+                dp[i][j] = min(ldg , min(d,rdg));
+                
+                // UPDATING THE FINAL ANS.
+                if(i==0) {
+                    ans = min(ans , dp[0][j]);
+                }
+            }
+        }
+        return ans;
+    }
+};
