@@ -1,12 +1,17 @@
-#include <bits/stdc++.h>
-#include "BinaryTreeNode.h"
-using namespace std;
-
-/*
- The basic idea is checking left and right heights of every node.
-*/
-
-int height(BinaryTreeNode<int> *root)
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int height(TreeNode *root)
 {
   if (root == nullptr)
     return 0;
@@ -23,7 +28,8 @@ int height(BinaryTreeNode<int> *root)
   return 1 + max(leftHeight, rightHeight);
 }
 
-bool isBalanced(BinaryTreeNode<int> *root)
+bool isBalanced(TreeNode *root)
 {
   return height(root) != -1;
 }
+};
