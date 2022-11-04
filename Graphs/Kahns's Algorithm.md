@@ -1,5 +1,6 @@
 # Kahns's Algorithm
 
+This is one of the inportant algorithms in graphs, used to find topological order and detect cycle in directed graphs using BFS.
 
 ```cpp
 class Solution {
